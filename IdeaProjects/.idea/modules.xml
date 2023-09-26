@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/IdeaProjects.iml" filepath="$PROJECT_DIR$/.idea/IdeaProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/allCode/allCode.iml" filepath="$PROJECT_DIR$/allCode/allCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/initiation/initiation.iml" filepath="$PROJECT_DIR$/initiation/initiation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-1st/java-1st.iml" filepath="$PROJECT_DIR$/java-1st/java-1st.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-java/project-java.iml" filepath="$PROJECT_DIR$/project-java/project-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/revised/revised.iml" filepath="$PROJECT_DIR$/revised/revised.iml" />
+    </modules>
+  </component>
+</project>

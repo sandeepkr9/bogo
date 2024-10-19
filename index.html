@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGO Offer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            color: #ff4081;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .option {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        .option .discount {
+            background-color: #ff4081;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+        .option .price {
+            float: right;
+            text-align: right;
+        }
+        .option .price .current-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .option .price .original-price {
+            text-decoration: line-through;
+            color: #aaa;
+            font-size: 14px;
+        }
+        .most-popular {
+            border-color: #ff4081;
+        }
+        .most-popular::before {
+            content: 'MOST POPULAR';
+            background-color: #ff4081;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 12px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            border-radius: 3px;
+        }
+        .size-colour {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .size-colour div {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .size-colour div:last-child {
+            margin-right: 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer .total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer .free-delivery {
+            color: #ff4081;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .add-to-cart {
+            background-color: #ff4081;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .powered-by {
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 10px;
+            text-align: end;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">YAY! It's BOGO</div>
+        <div class="option">
+            <input type="radio" name="unit" value="10" checked>
+            <span>1 Unit</span>
+            <span class="discount">10% Off</span>
+            <div class="price">
+                <div class="current-price">$10.00 USD</div>
+                <div class="original-price">$24.00 USD</div>
+            </div>
+            <div>Standard Price</div>
+        </div>
+        <div class="option most-popular">
+            <input type="radio" name="unit" value="18">
+            <span>2 Unit</span>
+            <span class="discount">20% Off</span>
+            <div class="price">
+                <div class="current-price">$18.00 USD</div>
+                <div class="original-price">$24.00 USD</div>
+            </div>
+            <div class="size-colour">
+                <div>
+                    <label for="size1">#1</label>
+                    <select id="size1">
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="colour1">Colour</label>
+                    <select id="colour1">
+                        <option>Black</option>
+                        <option>White</option>
+                        <option>Red</option>
+                    </select>
+                </div>
+            </div>
+            <div class="size-colour">
+                <div>
+                    <label for="size2">#2</label>
+                    <select id="size2">
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="colour2">Colour</label>
+                    <select id="colour2">
+                        <option>Black</option>
+                        <option>White</option>
+                        <option>Red</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="option">
+            <input type="radio" name="unit" value="24">
+            <span>3 Unit</span>
+            <span class="discount">30% Off</span>
+            <div class="price">
+                <div class="current-price">$24.00 USD</div>
+                <div class="original-price">$24.00 USD</div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="free-delivery">Free Delivery</div>
+            <div class="total">Total: $10.00 USD</div>
+            <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            <div class="powered-by">@ Powered by Pumper</div>
+        </div>
+    </div>
+
+    <script>
+        // Get all radio buttons and total display
+        const radios = document.querySelectorAll('input[name="unit"]');
+        const totalDisplay = document.querySelector('.total');
+
+        // Update total price when a radio button is selected
+        radios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                const selectedPrice = radio.value;
+                totalDisplay.textContent = `Total: $${selectedPrice}.00 USD`;
+            });
+        });
+    </script>
+</body>
+</html>
